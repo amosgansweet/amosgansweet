@@ -21,15 +21,15 @@ TELEGRAM_CHAT_ID: 你的 Telegram Chat ID。
 RecoveryCommand配置信息                                  
 修改 ACCOUNTS_JSON                                                     
 
-[
-    {
+[   
+    {   
         "host": "example1.com",
         "port": 22,
         "username": "user1",
         "password": "password1",
         "cron": "cd ~/domains/$USER.serv00.net/vless && ./check_vless.sh"
-    },
-    
+    },     
+     
     {
         "host": "example2.com",
         "port": 22,
