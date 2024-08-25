@@ -10,7 +10,8 @@ WebLogin中ACCOUNTSWEB_JSON: 包含账号信息的 JSON 数据。例如：
   
     {"username": "ct8的账号", "password": "ct8的密码", "panel": "panel.ct8.pl"},             
   
-    {"username": "user2", "password": "password2", "panel": "panel6.serv00.com"}                                  ]                                                         
+    {"username": "user2", "password": "password2", "panel": "panel6.serv00.com"}                              
+   ]                                                         
 
                                                                                                    
 
@@ -23,21 +24,21 @@ RecoveryCommand配置信息
 
 
 [   
-    {   
+      {   
         "host": "example1.com",
         "port": 22,
         "username": "user1",
         "password": "password1",
         "cron": "cd ~/domains/$USER.serv00.net/vless && ./check_vless.sh"
-    },     
+      },     
      
-    {
+      {
         "host": "example2.com",
         "port": 22,
         "username": "user2",
         "password": "password2"
         // 没有cron参数，使用默认命令
-    }
+      }
 ]
 
                                                                                             
