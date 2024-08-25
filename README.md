@@ -6,14 +6,11 @@ WebLogin中ACCOUNTSWEB_JSON: 包含账号信息的 JSON 数据。例如：
 
  
    [   
- 
     {"username": "serv00的账号", "password": "serv00的密码", "panel": "panel6.serv00.com"},            
   
     {"username": "ct8的账号", "password": "ct8的密码", "panel": "panel.ct8.pl"},             
   
-    {"username": "user2", "password": "password2", "panel": "panel6.serv00.com"}                     
-                                    
-   ]                                                         
+    {"username": "user2", "password": "password2", "panel": "panel6.serv00.com"}                                  ]                                                         
 
                                                                                                    
 
