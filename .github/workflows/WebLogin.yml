@@ -1,4 +1,4 @@
-name: Run Login Script
+name: 运行WebLogin登录serv00账户
 
 on:
   workflow_dispatch:
