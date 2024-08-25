@@ -31,7 +31,6 @@ RecoveryCommand配置信息
         "password": "password1",
         "cron": "cd ~/domains/$USER.serv00.net/vless && ./check_vless.sh"
       },     
-     
       {
         "host": "example2.com",
         "port": 22,
