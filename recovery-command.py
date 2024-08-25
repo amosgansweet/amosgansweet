@@ -3,7 +3,7 @@ import json
 import subprocess
 import requests
 
-def send_telegram_message(token, chat_id, message):
+def send_telegram_message(BOT_token, chat_id, message):
     telegram_url = f"https://api.telegram.org/bot{token}/sendMessage"
     telegram_payload = {
         "chat_id": chat_id,
@@ -31,7 +31,7 @@ try:
 except json.JSONDecodeError:
     error_message = "ACCOUNTS_JSON 参数格式错误"
     print(error_message)
-    send_telegram_message(telegram_token, telegram_chat_id, error_message)
+    send_telegram_message(telegram_bot_token, telegram_chat_id, error_message)
     exit(1)
 
 # 初始化汇总消息
@@ -59,4 +59,4 @@ for server in servers:
         summary_message += f"\n无法恢复 {host} 上的 singbox 服务：\n{e.output.decode('utf-8')}"
 
 # 发送汇总消息到 Telegram
-send_telegram_message(telegram_token, telegram_chat_id, summary_message)
+send_telegram_message(telegram_bot_token, telegram_chat_id, summary_message)
