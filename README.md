@@ -4,8 +4,8 @@
 WebLogin配置信息                                                                        
 添加以下 Secrets：                                                                             
 WebLogin中ACCOUNTSWEB_JSON: 包含账号信息的 JSON 数据。例如：
-
-[
+   
+    [
     {
         "username": "serv00的账号",
         "password": "serv00的密码",
@@ -21,7 +21,7 @@ WebLogin中ACCOUNTSWEB_JSON: 包含账号信息的 JSON 数据。例如：
         "password": "password2",
         "panel": "panel6.serv00.com"
     }
-]
+    ]
 
 TELEGRAM_BOT_TOKEN: 你的 Telegram Bot 的 API Token。
 TELEGRAM_CHAT_ID: 你的 Telegram Chat ID。
