@@ -21,13 +21,7 @@ WebLogin中ACCOUNTSWEB_JSON: 包含账号信息的 JSON 数据。例如：
         "password": "password2",
         "panel": "panel6.serv00.com"
     }
-]                                                                                                                                                  
-                                                                                                                                                 
-                                                                                                                                                  
-                                                                                                                                                  
-                                                                                                                                                  
-                                                                                                                                                  
-                                                                                                                                                  
+]
 
 TELEGRAM_BOT_TOKEN: 你的 Telegram Bot 的 API Token。
 TELEGRAM_CHAT_ID: 你的 Telegram Chat ID。
