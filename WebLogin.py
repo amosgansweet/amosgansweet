@@ -78,7 +78,7 @@ async def main():
         print(f'读取 accountsweb.json 文件时出错: {e}')
         return
 
-    for account in accounts:
+    for account in accountsweb:
         username = account['username']
         password = account['password']
         panel = account['panel']
