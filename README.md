@@ -18,9 +18,10 @@ TELEGRAM_BOT_TOKEN: 你的 Telegram Bot 的 API Token。
 TELEGRAM_CHAT_ID: 你的 Telegram Chat ID。
 
 ----------------------------------------------------------------------------------------------------
-                                    RecoveryCommand配置信息                                  
+RecoveryCommand配置信息                                  
 修改 ACCOUNTS_JSON                                                                          
-                                                                                                            
+
+                                                                                                                                           
 [
     {
         "host": "example1.com",
