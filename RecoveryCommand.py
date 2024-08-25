@@ -22,7 +22,7 @@ def send_telegram_message(bot_token, chat_id, message):
 
 # 从环境变量中获取密钥
 accounts_json = os.getenv('ACCOUNTS_JSON')
-telegram_token = os.getenv('TELEGRAM_BOT_TOKEN')
+telegram_bot_token = os.getenv('TELEGRAM_BOT_TOKEN')
 telegram_chat_id = os.getenv('TELEGRAM_CHAT_ID')
 
 # 检查并解析 JSON 字符串
@@ -35,7 +35,7 @@ except json.JSONDecodeError:
     exit(1)
 
 # 初始化汇总消息
-summary_message = "serv00-singbox 恢复操作结果：\n"
+summary_message = "serv00-node 恢复操作结果：\n"
 
 # 默认恢复命令
 default_restore_command = "pgrep -x 's5' > /dev/null || nohup /home/aomega-yahai/.s5/s5 -c /home/aomega-yahai/.s5/config.json >/dev/null 2>&1 &"
@@ -54,9 +54,9 @@ for server in servers:
     restore_command = f"sshpass -p '{password}' ssh -o StrictHostKeyChecking=no -p {port} {username}@{host} '{cron_command}'"
     try:
         output = subprocess.check_output(restore_command, shell=True, stderr=subprocess.STDOUT)
-        summary_message += f"\n成功恢复 {host} 上的 singbox 服务：\n{output.decode('utf-8')}"
+        summary_message += f"\n成功恢复 {host} 上的 node 服务：\n{output.decode('utf-8')}"
     except subprocess.CalledProcessError as e:
-        summary_message += f"\n无法恢复 {host} 上的 singbox 服务：\n{e.output.decode('utf-8')}"
+        summary_message += f"\n无法恢复 {host} 上的 node 服务：\n{e.output.decode('utf-8')}"
 
 # 发送汇总消息到 Telegram
 send_telegram_message(telegram_bot_token, telegram_chat_id, summary_message)
