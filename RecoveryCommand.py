@@ -3,7 +3,7 @@ import json
 import subprocess
 import requests
 
-def send_telegram_message(BOT_token, chat_id, message):
+def send_telegram_message(bot_token, chat_id, message):
     telegram_url = f"https://api.telegram.org/bot{token}/sendMessage"
     telegram_payload = {
         "chat_id": chat_id,
