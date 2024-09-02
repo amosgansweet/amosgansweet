@@ -3,7 +3,7 @@ name: Execute SSH Commands
 on:
   workflow_dispatch: # 手动触发工作流
   schedule:
-    - cron: "30 0,13 * * *"  # 每天 北京时间 早8点30分 晚9点30分 各运行一次
+    - cron: "30 0,13 * * *"  # 每天 北京时间 早0点30分 晚13点30分 各运行一次
 
 jobs:
   execute-commands:
@@ -12,13 +12,13 @@ jobs:
       - name: Set up SSHPass
         run: sudo apt-get update && sudo apt-get install -y sshpass
 
-      - name: Get ACCOUNTS_JSON
-        id: get-accounts
+      - name: Get ACCOUNTSSSH_JSON
+        id: get-accountsssh
         run: |
-          echo "$ACCOUNTS_JSON" > accounts.json
+          echo "$ACCOUNTSSSh_JSON" > accountsssh.json
         env:
-          ACCOUNTS_JSON: ${{ secrets.ACCOUNTS_JSON }}
-        # 从 GitHub Secrets 获取 ACCOUNTS_JSON 变量，并保存到文件 accounts.json
+          ACCOUNTSSSH_JSON: ${{ secrets.ACCOUNTSSSH_JSON }}
+        # 从 GitHub Secrets 获取 ACCOUNTSSSH_JSON 变量，并保存到文件 accountsssh.json
 
       - name: Generate SSH Commands
         id: generate-ssh-commands
