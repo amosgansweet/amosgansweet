@@ -15,7 +15,7 @@ jobs:
       - name: Get ACCOUNTSSSH_JSON
         id: get-accountsssh
         run: |
-          echo "$ACCOUNTSSSh_JSON" > accountsssh.json
+          echo "$ACCOUNTSSSH_JSON" > accountsssh.json
         env:
           ACCOUNTSSSH_JSON: ${{ secrets.ACCOUNTSSSH_JSON }}
         # 从 GitHub Secrets 获取 ACCOUNTSSSH_JSON 变量，并保存到文件 accountsssh.json
