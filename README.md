@@ -63,3 +63,10 @@ RecoveryCommand配置信息
 TELEGRAM_BOT_TOKEN: 你的 Telegram Bot 的 API Token。    
 TELEGRAM_CHAT_ID: 你的 Telegram Chat ID。                                                        
  
+添加变量名称 TELEGRAM_JSON 添加变量值，复制下面代码替换成自己的TG TOKEN ID(for ACCOUNTSSSH_JSON)
+
+    {
+      "telegramBotToken": "YOUR_BOT_TOKEN",
+      "telegramBotUserId": "YOUR_USER_ID"
+    }
+
