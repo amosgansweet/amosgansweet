@@ -50,6 +50,7 @@ RecoveryCommand配置信息
 
 
 添加 Secrets.ACCOUNTSSSH_JSON 变量
+
     [
         {"username": "cmliusss", "password": "7HEt(xeRxttdvgB^nCU6", "panel": "panel4.serv00.com", "ssh": "s4.serv00.com"},
   
