@@ -20,6 +20,23 @@ jobs:
           ACCOUNTSSSH_JSON: ${{ secrets.ACCOUNTSSSH_JSON }}
         # 从 GitHub Secrets 获取 ACCOUNTSSSH_JSON 变量，并保存到文件 accountsssh.json
 
+      - name: Get TELEGRAM_JSON
+        id: get-telegram-json
+        run: |
+          echo "$TELEGRAM_JSON" > telegram.json
+        env:
+          TELEGRAM_JSON: ${{ secrets.TELEGRAM_JSON }}
+        # 从 GitHub Secrets 获取 TELEGRAM_JSON 变量，并保存到文件 telegram.json
+
+      - name: Extract Telegram Credentials
+        id: extract-telegram-credentials
+        run: |
+          telegramBotToken=$(jq -r '.telegramBotToken' telegram.json)
+          telegramBotUserId=$(jq -r '.telegramBotUserId' telegram.json)
+          echo "TELEGRAM_BOT_TOKEN=$telegramBotToken" >> $GITHUB_ENV
+          echo "TELEGRAM_CHAT_ID=$telegramBotUserId" >> $GITHUB_ENV
+        # 从 telegram.json 中提取 Telegram Bot Token 和 User ID，并设置为环境变量
+
       - name: Generate SSH Commands
         id: generate-ssh-commands
         run: |
@@ -34,5 +51,19 @@ jobs:
           done < <(jq -c '.[]' accountsssh.json)
           chmod +x sshpass.sh
 
+      - name: Send Telegram Notification - Start
+        run: |
+          curl -s -X POST https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage \
+          -d chat_id=$TELEGRAM_CHAT_ID \
+          -d text="SSH commands execution started."
+        # 发送开始执行 SSH 命令的通知
+
       - name: Execute SSH Commands
         run: ./sshpass.sh
+
+      - name: Send Telegram Notification - Finish
+        run: |
+          curl -s -X POST https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage \
+          -d chat_id=$TELEGRAM_CHAT_ID \
+          -d text="SSH commands execution finished."
+        # 发送完成 SSH 命令执行的通知
