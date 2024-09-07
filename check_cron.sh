@@ -11,7 +11,6 @@ HY2="nohup /home/${USER}/hy2/hy2.sh  >/dev/null 2>&1 &"
 
 
 echo "检查是否运行，如果无，就启动"
-
- ps aux | grep -v grep | grep nezha-agent > /dev/null || bash -c "$CRON_NEZHA"
- ps aux | grep -v grep | grep s5 > /dev/null || bash -c "$CRON_S5"
  ps aux | grep -v grep | grep server > /dev/null || bash -c "$HY2"
+ ps aux | grep -v grep | grep s5 > /dev/null || bash -c "$CRON_S5"
+ ps aux | grep -v grep | grep nezha-agent > /dev/null || bash -c "$CRON_NEZHA"
